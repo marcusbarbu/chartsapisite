@@ -15,11 +15,11 @@ scrape = Top40Scraper()
 # def boop():
 # 	return "hadsf"
 
-@app.route('/top40api/<chart>', methods=['GET'])
+@app.route('/chartsapi/<chart>', methods=['GET'])
 def get_chart(chart):
 	return scrape.get_chart(chart)
 
-@app.route('/top40api/<chart>/<option>', methods=['GET'])
+@app.route('/chartsapi/<chart>/<option>', methods=['GET'])
 def get_options(chart, option):
 	scrape.get_chart(chart)
 	if option == 'songs':
@@ -27,7 +27,7 @@ def get_options(chart, option):
 	elif option == 'artists':
 		return scrape.get_artist_list()
 
-@app.route('/top40api/charts', methods=['GET'])
+@app.route('/chartsapi/charts', methods=['GET'])
 def deliver_charts():
 	return scrape.get_chart_titles()
 
