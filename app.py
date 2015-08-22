@@ -1,6 +1,8 @@
 from flask import Flask 
+from flask import make_response
 from ChartScraper import Top40Scraper
 import os
+import json
 
 
 app = Flask(__name__)
@@ -17,11 +19,17 @@ scrape = Top40Scraper()
 
 @app.route('/chartsapi/<chart>', methods=['GET'])
 def get_chart(chart):
-	return scrape.get_chart(chart)
+	try:
+		return scrape.get_chart(chart)
+	except ValueError as e:
+		return json.dumps(["That chart does not exist"], indent = 2)
 
 @app.route('/chartsapi/<chart>/<option>', methods=['GET'])
 def get_options(chart, option):
-	scrape.get_chart(chart)
+	try:
+		scrape.get_chart(chart)
+	except ValueError as e:
+		return json.dumps(["That chart does not exist"], indent = 2)
 	if option == 'songs':
 		return scrape.get_song_list()
 	elif option == 'artists':
@@ -31,7 +39,13 @@ def get_options(chart, option):
 def deliver_charts():
 	return scrape.get_chart_titles()
 
+@app.errorhandler(404)
+def not_found(error):
+	return json.dumps(["That chart does not exist"], indent = 2)
 
+@app.errorhandler(500)
+def internal_error(error):
+	return json.dumps(["An internal error occured"], indent = 2)
 app.debug = False
 
 if (__name__) == '__main__':

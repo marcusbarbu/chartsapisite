@@ -22,7 +22,8 @@ class Top40Scraper:
         try:
             number = self.chart_titles_dict[self.chart_name]
         except KeyError:
-            return json.dumps(["That chart does not exist"], indent = 2)
+            #return json.dumps(["That chart does not exist"], indent = 2)
+            raise ValueError('That chart does not exist')
         self.url = self.base_url + str(number)
         raw = requests.get(self.url)
         soup = Soupy(raw.text)
