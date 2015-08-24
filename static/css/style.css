@@ -1,0 +1,25 @@
+  div .container.container-colored{
+    background-image: url(../img/equalizer.svg);
+    background-size:80px 60px;
+  }
+
+@media screen and (min-width:768px) {
+	.container-colored{
+	background-image: url(../img/equalizer.svg);
+    background-size:99.9%;
+	}
+	.jumbotron{
+		background-color:rgba(255,255,255,0.4);
+		color:black;
+	}
+	.container{
+		background-color:rgb(206,206,206);
+	}
+}
+body{
+	background-color:rgb(133,133,133);
+}
+iframe{
+	background-color:white;
+	font:helvetica;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+	    <link href="/static/css/narrow.css" rel="stylesheet">
+	    <link href="/static/css/style.css" rel="stylesheet">
+	    <script src="http://code.jquery.com/jquery-latest.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <script src="/static/js/bootstrap.min.js"></script>
+	    <script>
+			$(document).ready(function(){
+			    $("#butn").click(function(){
+			        $("#samplerequest").show();
+			    });
+			});
+		</script>
+	    <title>Hi</title>
+    </head>
+    <body>
+    	<div class="container container-colored img-rounded">
+    	
+    	<div class="jumbotron">
+        	<h1>ChartAPI</h1>
+        	<p class="lead">Programmatically access pop music charts.</p>
+        	<p><a class="btn btn-lg btn-success" href="#" role="button" id="butn">Try a sample request</a></p>
+      	
+      	</div>
+      	</div>
+      <div class="container img-rounded">
+      <div class = "row">
+      	<div class="offset3 text-center">
+      	<iframe src="http://chartapi.herokuapp.com/chartsapi/australia" id="samplerequest"></iframe>
+      	</div>
+      </div>
+      <div class="row marketing">
+        <div class="col-lg-6">
+        <h2>Powered By:</h2>
+
+          <h4><a href="http://flask.pocoo.org/">Flask</a></h4>
+          <p>Dead simple Python web framework.</p>
+
+          <h4><a href="https://github.com/coderiot/soupy">Soupy</a></h4>
+          <p>Web scraping made easier.</p>
+          
+          <h4><a href="http://top40-charts.com">Top40-Charts.com</a></h4>
+          <p>Hot music charts from all around the world.</p>
+        </div>
+
+        <div class="col-lg-6">
+        <h2>What we serve:</h2>
+          <h4>Full charts</h4>
+          <p>Hit up <code>/chartsapi/CHART/</code> for tasty JSON charts. </p>
+
+          <h4>Top songs</h4>
+          <p>Want just songs? We got just songs. <code>/chartsapi/CHART/songs/</code></p>
+
+          <h4>Top artists</h4>
+          <p>What's more important? Art or artist? You can decide.<br> <code>/chartsapi/CHART/artists/</code></p>
+
+        </div>
+      </div>
+      <div class = "row marketing center-x">
+      <h2>Check out what we've got</h2>
+      <h4>Get the list of valid charts from <code>/chartsapi/charts/</code></h4>
+      </div>
+      <footer class="footer">
+        <p><a href="http://github.com/marcusbarbu">A Marcus Barbu Production</a></p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

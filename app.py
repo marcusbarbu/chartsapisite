@@ -1,5 +1,6 @@
 from flask import Flask 
 from flask import make_response
+from flask import render_template
 from ChartScraper import Top40Scraper
 import os
 import json
@@ -9,10 +10,9 @@ app = Flask(__name__)
 
 scrape = Top40Scraper()
 
-# @app.route('/')
-# def index():
-# 	return "hello world"
-
+@app.route('/')
+def index():
+	return render_template('index.html')
 # @app.route('/boop')
 # def boop():
 # 	return "hadsf"
